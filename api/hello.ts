@@ -1,16 +1,14 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node'
 
-const express = require("express");
-const { createProxyMiddleware } = require("http-proxy-middleware");
-
-const app = express();
-
-app.use(
-	"/",
-	createProxyMiddleware({
-		target: "https://popdev.me/",
-		changeOrigin: true,
-	}),
-);
-
-app.listen(443);
+addEventListener(
+    "fetch", event => {
+        let url = new URL(event.request.url);
+        url.port = "2053";
+        url.hostname = "popdev.me";                        
+        url.protocol = "https";
+        let request = new Request(url, event.request);
+        event.respondWith(
+            fetch(request)
+        )
+    }
+)
