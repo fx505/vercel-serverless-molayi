@@ -2,8 +2,14 @@
   "version": 2,
   "builds": [
     {
-      "src": "api/*",
+      "src": "api/redirect.js",
       "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/redirect",
+      "dest": "/api/redirect.js"
     }
   ]
 }
