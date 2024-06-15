@@ -1,13 +1,13 @@
 {
-    "rewrites": [
-        {
-            "source": "/(.*)",
-            "destination": "/worker.js"
-        }
-    ],
-    "functions": {
-        "api/worker.js": {
-            "runtime": "edge"
-        }
+  "functions": {
+    "api/worker.js": {
+      "runtime": "vercel-edge@1.0.0"
     }
+  },
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/api/worker.js"
+    }
+  ]
 }
