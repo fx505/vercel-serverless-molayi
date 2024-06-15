@@ -1,15 +1,13 @@
 {
-  "version": 2,
-  "builds": [
-    {
-      "src": "api/redirect.js",
-      "use": "@vercel/node"
+    "rewrites": [
+        {
+            "source": "/(.*)",
+            "destination": "/worker.js"
+        }
+    ],
+    "functions": {
+        "api/worker.js": {
+            "runtime": "edge"
+        }
     }
-  ],
-  "routes": [
-    {
-      "src": "/api/redirect",
-      "dest": "/api/redirect.js"
-    }
-  ]
 }
