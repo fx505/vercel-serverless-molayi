@@ -3,7 +3,7 @@
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "/api/fetch.js"
+      "dest": "/api/rewrite.js"
     }
   ]
 }
